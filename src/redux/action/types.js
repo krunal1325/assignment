@@ -1,0 +1,5 @@
+export const FETCH_ITEM = 'FETCH_ITEM'
+export const FAIL_FETCH_ITEM = 'FAIL_FETCH_ITEM'
+export const ADD_ITEM_TO_CART = 'ADD_ITEM_TO_CART'
+export const FAIL_TO_ADD_ITEM = 'FAIL_TO_ADD_ITEM'
+

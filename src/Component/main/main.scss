@@ -1,0 +1,53 @@
+header{
+    padding: 1%;
+}
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#companey-name{
+    color: #1d7cbf;
+}
+#center{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;    
+}
+.divider {
+    display: flex;
+    color: #1d7cbf;
+    &:before,
+    &:after {
+      content: "";
+      flex: 1;
+    }
+}
+.line {
+    align-items: center;
+    margin: 0.2em -1em;
+    &:before,
+    &:after {
+      height: 1px;
+      margin: 0 1em;
+    }
+}
+.one-line {
+    &:before,
+    &:after {
+      background: #1d7cbf;
+    }
+}
+.item-grid{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2% 4%;
+    div{
+        width: 200px;
+        padding: 2em;
+        flex: 1;
+    }
+}
