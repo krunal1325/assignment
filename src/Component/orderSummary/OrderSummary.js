@@ -5,9 +5,6 @@ import * as math from 'mathjs'
 import './ordersummary.scss'
 
 const OrderSummary = ({item}) => {  
-    useEffect(()=>{
-        localStorage.getItem('titalItemInCart')
-    },[])
     let no = 0 
     let sum = 0
     let totalItem = localStorage.getItem('totalItemInCart')
@@ -18,6 +15,7 @@ const OrderSummary = ({item}) => {
         let upd_total_val = cur_total_val + 1
         localStorage.setItem(`item${id}`,upd_val)
         localStorage.setItem('totalItemInCart',upd_total_val)
+        window.location.reload()
                 
     }
     const decrementCount = (id) =>{
@@ -27,6 +25,8 @@ const OrderSummary = ({item}) => {
         let upd_total_val = cur_total_val - 1
         localStorage.setItem(`item${id}`,upd_val)
         localStorage.setItem('totalItemInCart',upd_total_val)
+        window.location.reload()
+
     }
     return (
         <div>
