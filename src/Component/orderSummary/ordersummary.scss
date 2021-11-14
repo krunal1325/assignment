@@ -42,6 +42,9 @@ h2{
                 background-color: gray;
                 border: 1px solid gray;
             }
+            button:hover{
+                cursor: pointer;
+            }
         }
     }
 }
@@ -77,4 +80,7 @@ h2{
     background-color: #1d7cbf;
     border: none;
     padding: 8px 18px;
+}
+.order-btn:hover{
+    cursor: pointer;
 }

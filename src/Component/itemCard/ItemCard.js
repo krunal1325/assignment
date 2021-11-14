@@ -16,15 +16,15 @@ const ItemCard = ({ id,name, description, final_price, original_price, img_url, 
         setItemInCart((state)=>state - 1)
         setTotalItemInCart((state)=>state - 1)
     }
-    const upperCase = (name) =>{
-        let p_name = name.split(' ')
-        let cap_name = ''
-        p_name.forEach(element => {
-            let capitalized = element.charAt(0).toUpperCase() + element.slice(1);
-            cap_name += ` ${capitalized}`
-        });
-        return cap_name
-    }
+    // const upperCase = (name) =>{
+    //     let p_name = name.split(' ')
+    //     let cap_name = ''
+    //     p_name.forEach(element => {
+    //         let capitalized = element.charAt(0).toUpperCase() + element.slice(1);
+    //         cap_name += ` ${capitalized}`
+    //     });
+    //     return cap_name
+    // }
     return (
         <div id="abc">
             <div className="ribbon-container">
@@ -35,8 +35,8 @@ const ItemCard = ({ id,name, description, final_price, original_price, img_url, 
                 }
             </div>
             <span id="price-name">
-                <h4>{upperCase(name)}</h4>
-                <p><strong>{`$ ${final_price}`}</strong></p>
+                <h4 className="capitalize">{name}</h4>
+                <p><strong><b id="strike">{original_price && (`$${original_price}`)}</b>&nbsp;{`$ ${final_price}`}</strong></p>
             </span>
             <p id="description">{description}</p>
             {(itemInCart === 0) && (<button id="add-cart-btn" onClick={incrementCount}> Add To Cart</button>)}

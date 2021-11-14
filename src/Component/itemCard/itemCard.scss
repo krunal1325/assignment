@@ -17,6 +17,9 @@
     background-color: white;
     border: 1px solid #1d7cbf;
 }
+#add-cart-btn:hover{
+    cursor: pointer;
+}
 .add-item-btn{
     display: flex;
     width: fit-content;
@@ -35,6 +38,16 @@
         color: white;
         background-color: #1d7cbf;
     }
+    button:hover{
+        cursor: pointer;
+    }
+}
+.capitalize{
+    text-transform: capitalize;
+}
+#strike{
+    text-decoration: line-through;
+    color: gray;
 }
 .ribbon-container{
     width: fit-content;

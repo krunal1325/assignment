@@ -46,7 +46,7 @@ header{
     flex-wrap: wrap;
     padding: 2% 4%;
     div{
-        width: 200px;
+        max-width: 200px;
         padding: 2em;
         flex: 1;
     }

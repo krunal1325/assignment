@@ -1,4 +1,4 @@
-import React,{ useEffect } from 'react'
+import React,{ useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import * as math from 'mathjs'
@@ -8,25 +8,14 @@ const OrderSummary = ({item}) => {
     let no = 0 
     let sum = 0
     let totalItem = localStorage.getItem('totalItemInCart')
-    const incrementCount = (id) =>{
+    const changeCount = (type,id) =>{
         let cur_val = parseInt(localStorage.getItem(`item${id}`))
         let cur_total_val = parseInt(localStorage.getItem('totalItemInCart'))
-        let upd_val = cur_val + 1
-        let upd_total_val = cur_total_val + 1
+        let upd_val = cur_val + (type === 'increament' ? 1 : -1)
+        let upd_total_val = cur_total_val + (type === 'increament' ? 1 : -1)
         localStorage.setItem(`item${id}`,upd_val)
         localStorage.setItem('totalItemInCart',upd_total_val)
-        window.location.reload()
-                
-    }
-    const decrementCount = (id) =>{
-        let cur_val = parseInt(localStorage.getItem(`item${id}`))
-        let cur_total_val = parseInt(localStorage.getItem('totalItemInCart'))
-        let upd_val = cur_val - 1
-        let upd_total_val = cur_total_val - 1
-        localStorage.setItem(`item${id}`,upd_val)
-        localStorage.setItem('totalItemInCart',upd_total_val)
-        window.location.reload()
-
+        window.location.reload()            
     }
     return (
         <div>
@@ -53,16 +42,16 @@ const OrderSummary = ({item}) => {
                         </thead>
                         <tbody>
                             {item.items.map((item,index)=>{
-                                var abc = localStorage.getItem(`item${item.id}`)
+                                var itemInCart = localStorage.getItem(`item${item.id}`)
                                 return(
                                     (parseInt(localStorage.getItem(`item${item.id}`)) !== 0) &&
                                     (<tr key={item.id}>
                                         <td>{no = no + 1}</td>
                                         <td>{item.name}</td>
                                         <td className="btn">
-                                            <button onClick={()=>incrementCount(item.id)}>+</button>
-                                            <p>{abc}</p>
-                                            <button onClick={()=>decrementCount(item.id)}>-</button>
+                                            <button onClick={()=>changeCount('increament',item.id)}>+</button>
+                                            <p>{itemInCart}</p>
+                                            <button onClick={()=>changeCount('decrement',item.id)}>-</button>
                                         </td>
                                     </tr>)
                                 )
@@ -88,7 +77,6 @@ const OrderSummary = ({item}) => {
                                 )
                             })}
                             <hr />
-                            {console.log(sum)}
                             <tr>
                                 <td>Total Savings:</td>
                                 <td>{}</td>
